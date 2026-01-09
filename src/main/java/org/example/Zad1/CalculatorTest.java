@@ -14,9 +14,11 @@ public class CalculatorTest {
 
         double wynik = Calculator.divide(a,b);
 
-        assertThrows(ArithmeticException.class, () -> {
+        Throwable exception = assertThrows(DivisionByZeroException.class, () -> {
             Calculator.divide(10, 0);
         });
+
+        System.out.println("Exception message: " + exception.getMessage());
 
 
         assertEquals(2, wynik, 2);
