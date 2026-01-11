@@ -4,6 +4,8 @@ public class Task {
     String name;
     String description;
     Priority priority;
+    boolean done;
+
     public Task(String name, String description, Priority priority) {
         this.name = name;
         this.description = description;
@@ -19,6 +21,10 @@ public class Task {
         return priority;
     }
 
+    public boolean isDone() {
+        return done;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -28,6 +34,10 @@ public class Task {
 
     public void setPriority(Priority priority) {
         this.priority = priority;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     @Override
