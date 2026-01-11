@@ -16,12 +16,33 @@ public class App extends Application {
     Scene ekranDodawania, ekranGlowny, ekranInfo;
     TaskService taskService = new TaskService();
     ListView<Task> taskList = new ListView<>(taskService.getTasks());
+    Task chosenTask;
 
     @Override
     public void start(Stage stage) {
         taskService.addTask(new Task("New App","App about your hobbies", Priority.MEDIUM));
         taskService.addTask(new Task("Vaccuming","I have to vaccum my room and a bathroom", Priority.HIGH));
         taskService.addTask(new Task("Math homework","I have to do my math homework", Priority.MEDIUM));
+
+        taskList.setCellFactory(param -> new ListCell<Task>() {
+            @Override
+            protected void updateItem(Task item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item.name +" - "+ item.description);
+
+                    if (item.isDone()){
+                        setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    } else {
+                        setStyle("-fx-text-fill: black; -fx-font-weight: bold");
+                    }
+                }
+            }
+        });
 
 
         Label label_info_name = new Label("name");
@@ -47,6 +68,7 @@ public class App extends Application {
                         label_info_name.setText(nowaWartosc.name);
                         label_info_description.setText(nowaWartosc.description);
                         label_info_priority.setText("Priority: " + nowaWartosc.priority.toString());
+                        chosenTask = nowaWartosc;
                     }
                 }
         );
@@ -76,13 +98,25 @@ public class App extends Application {
         // EKRAN INFO
 
         Button buttonBack2 = new Button("<< Back");
-        buttonBack2.getStyleClass().add("button-success");
+
+        Button setDone = new Button("Set done");
+
+        Button setNotDone = new Button("Set not done");
+
 
 
         buttonBack2.setOnAction(e -> stage.setScene(ekranGlowny));
+        setDone.setOnAction(e -> chosenTask.setDone(true));
+        setNotDone.setOnAction(e -> chosenTask.setDone(false));
 
         StackPane layout2 = new StackPane();
-        layout2.getChildren().addAll(label_info_name,label_info_priority,label_info_description,buttonBack2);
+        HBox layoutbutton2 = new HBox(20);
+        layoutbutton2.setAlignment(Pos.CENTER);
+        layoutbutton2.getChildren().addAll(setDone,setNotDone);
+        VBox layout4 = new VBox(20);
+        layout4.setAlignment(Pos.CENTER);
+        layout4.getChildren().addAll(label_info_description,label_info_priority,layoutbutton2);
+        layout2.getChildren().addAll(label_info_name,layout4,buttonBack2);
         StackPane.setAlignment(label_info_name, Pos.TOP_CENTER);
         StackPane.setAlignment(buttonBack2, Pos.BOTTOM_LEFT);
         StackPane.setAlignment(label_info_description, Pos.BOTTOM_CENTER);
