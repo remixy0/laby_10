@@ -55,11 +55,13 @@ public class App extends Application {
         etykietaInfo.getStyleClass().add("duzy-tekst");
 
         Button dodaj_zadanie = new Button("Add new task");
-        dodaj_zadanie.getStyleClass().add("button-add");
+        dodaj_zadanie.getStyleClass().add("button-green");
 
         Button usun_zadanie = new Button("Remove task");
+        usun_zadanie.getStyleClass().add("button-red");
 
         Button info_zadanie = new Button("Get more info");
+        info_zadanie.getStyleClass().add("button-blue");
 
         taskList.getSelectionModel().selectedItemProperty().addListener(
                 (observable, staraWartosc, nowaWartosc) -> {
@@ -98,10 +100,13 @@ public class App extends Application {
         // EKRAN INFO
 
         Button buttonBack2 = new Button("<< Back");
+        buttonBack2.getStyleClass().add("button-blue");
 
         Button setDone = new Button("Set done");
+        setDone.getStyleClass().add("button-green");
 
         Button setNotDone = new Button("Set not done");
+        setNotDone.getStyleClass().add("button-red");
 
 
 
@@ -134,13 +139,13 @@ public class App extends Application {
         Label label2 = new Label("Add new task ");
         label2.getStyleClass().add("duzy-tekst");
 
-        buttonBack.getStyleClass().add("button-success");
+        buttonBack.getStyleClass().add("button-blue");
 
         Button buttonAdd = new Button("Add task");
-        buttonAdd.getStyleClass().add("button-add");
+        buttonAdd.getStyleClass().add("button-green");
 
         Button buttonGetInfo= new Button("Add task");
-        buttonGetInfo.getStyleClass().add("button-success");
+        buttonGetInfo.getStyleClass().add("button-blue");
 
         TextField poleName = new TextField();
         poleName.setPromptText("Enter the task name");
@@ -178,8 +183,6 @@ public class App extends Application {
         StackPane.setAlignment(buttonAdd, Pos.BOTTOM_RIGHT);
 
         ekranDodawania = new Scene(layout_info, 600, 450);
-
-
 
 
 

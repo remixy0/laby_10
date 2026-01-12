@@ -11,8 +11,10 @@
 }
 
 /* JavaFX domyślnie dodaje klasę .button do wszystkich przycisków */
-.button {
-    -fx-background-color: #3498db; /* Niebieski */
+
+
+.button-green {
+    -fx-background-color: green; /* Zielony */
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-padding: 10px 20px; /* Margines wewnętrzny */
@@ -20,8 +22,8 @@
     -fx-cursor: hand; /* Łapka po najechaniu */
 }
 
-.button-add {
-    -fx-background-color: #2ecc71; /* Zielony */
+.button-red {
+    -fx-background-color: red; /* Czerwony */
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-padding: 10px 20px; /* Margines wewnętrzny */
@@ -29,8 +31,8 @@
     -fx-cursor: hand; /* Łapka po najechaniu */
 }
 
-.button {
-    -fx-background-color: #3498db; /* Niebieski */
+.button-blue {
+    -fx-background-color: #1E90FF; /* Niebieski */
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-padding: 10px 20px; /* Margines wewnętrzny */
@@ -38,14 +40,8 @@
     -fx-cursor: hand; /* Łapka po najechaniu */
 }
 
-.button {
-    -fx-background-color: #3498db; /* Niebieski */
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-padding: 10px 20px; /* Margines wewnętrzny */
-    -fx-background-radius: 5px; /* Zaokrąglone rogi */
-    -fx-cursor: hand; /* Łapka po najechaniu */
-}
+
+
 
 /* Efekt po najechaniu myszką (hover) */
 .button:hover {
